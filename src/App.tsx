@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { OnboardingLayout } from "@/layouts/OnboardingLayout"
 import { SetupLayout } from "@/layouts/SetupLayout"
 import { Button } from "@/components/ui/button"
@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { FirstTimeSetupScreen } from "@/screens/FirstTimeSetupScreen"
 import { VoiceRecordingScreen } from "@/screens/VoiceRecordingScreen"
 import { DashboardScreen } from "@/screens/DashboardScreen"
+import { MobileBlockScreen } from "@/components/MobileBlockScreen"
 
 import { GroupSelectionScreen } from "@/screens/GroupSelectionScreen"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -16,6 +17,17 @@ type Screen = "access" | "email-login" | "first-time-setup" | "voice-recording" 
 function App() {
   const { t } = useLanguage()
   const [currentScreen, setCurrentScreen] = useState<Screen>("access")
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  if (isMobile) {
+    return <MobileBlockScreen />
+  }
 
   // Dashboard - Now using the real DashboardScreen
   if (currentScreen === "dashboard") {
