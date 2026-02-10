@@ -68,6 +68,7 @@ function App() {
       <SetupLayout title={t('welcomeMaja')} onClose={() => setCurrentScreen("group-selection")}>
         <FirstTimeSetupScreen
           onContinue={() => setCurrentScreen("voice-recording")}
+          onGoBack={() => setCurrentScreen("access")}
           onSkip={() => setCurrentScreen("group-selection")}
         />
       </SetupLayout>

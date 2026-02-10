@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 interface FirstTimeSetupScreenProps {
     userName?: string
     onContinue?: () => void
+    onGoBack?: () => void
     onSkip?: () => void
 }
 
@@ -18,6 +19,7 @@ interface FirstTimeSetupScreenProps {
  */
 export function FirstTimeSetupScreen({
     onContinue,
+    onGoBack,
     onSkip
 }: FirstTimeSetupScreenProps) {
     return (
@@ -46,12 +48,23 @@ export function FirstTimeSetupScreen({
                     Got it, continue
                 </Button>
 
+                 <div className="flex justify-around w-full gap-14">  
                 <button
-                    className="text-white/60 text-sm hover:text-white/80 font-medium py-2"
+                    className="text-white/60 text-sm hover:text-white/80 font-medium px-2 py-2"
+                    onClick={onGoBack}
+ 
+  
+                >
+                   Go Back
+                </button>
+ 
+                <button
+                    className="text-white/60 text-sm hover:text-white/80 font-medium px-2 py-2"
                     onClick={onSkip}
                 >
                     Skip for now
                 </button>
+                </div>
             </div>
 
             {/* Fine print */}
