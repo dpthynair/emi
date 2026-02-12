@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { Sidebar } from "@/components/Sidebar"
 import { MOCK_STUDENT_DATA, AVATAR_MAP } from "./DashboardScreen"
 import { KidCard } from "@/components/KidCard"
-import { TeacherUnlockModal } from "@/components/TeacherUnlockModal" // Assuming correct path, was in context
+import { TeacherUnlockModal } from "@/components/modals/TeacherUnlockModal"
 import { KidGameScreen } from "./KidGameScreen"
 import { MascotIntroScreen } from "./MascotIntroScreen"
 
@@ -20,10 +20,13 @@ export function KidsGameEntryScreen({ onExit }: { onExit?: () => void }) {
     const activeKid = activeKidId ? MOCK_STUDENT_DATA.find(k => k.id === activeKidId) : null
     const kidAvatarUrl = activeKid ? (AVATAR_MAP[activeKid.avatar] || AVATAR_MAP["apple"]) : undefined
 
+
+
     // Navigation Handlers
     const handleKidSelect = (id: string) => {
         setActiveKidId(id)
         setViewMode('intro')
+        // if (activeKidId && viewMode === 'intro') window.location.href = 'https://sunny-again-nawa.vercel.app/'
     }
 
     const handleBackToGrid = () => {

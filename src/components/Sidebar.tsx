@@ -1,4 +1,4 @@
-import { Home, Users, LayoutGrid, Palette, Bell, MoreHorizontal } from "lucide-react"
+import { Home, Users, LayoutGrid, Bell, MoreHorizontal } from "lucide-react"
 import { motion } from "framer-motion"
 import { MoreMenu } from "@/components/MoreMenu"
 import { GroupSwitcherMenu } from "@/components/GroupSwitcherMenu"
@@ -87,11 +87,7 @@ export function Sidebar({
                                 active={activeView === 'activities'}
                                 onClick={() => onNavigate?.('activities')}
                             />
-                            <SidebarIconButton
-                                icon={<Palette className="w-[var(--sidebar-icon-size)] h-[var(--sidebar-icon-size)]" />}
-                                active={activeView === 'design-system'}
-                                onClick={() => onNavigate?.('design-system')}
-                            />
+                          
                         </>
                     )}
                 </nav>

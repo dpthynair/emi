@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { MoreHorizontal, Flag, Settings, HelpCircle } from 'lucide-react';
-import { ReportIssueModal } from './ReportIssueModal';
+import { ReportIssueModal } from '@/components/modals/ReportIssueModal';
 import { toast } from './ui/toaster';
 
 interface MoreMenuProps {
