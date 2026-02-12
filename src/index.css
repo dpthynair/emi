@@ -198,7 +198,7 @@
 
   /* Panel Layout Behavior
      Use these classes on the main content wrapper:
-     - .panel-scroll: Content scrolls within panel (Design System, Settings)
+     - .panel-scroll: Content scrolls within panel ( Settings)
      - .panel-fixed:  Content stretches to fill panel, no scroll (Dashboard graphs)
   */
 
@@ -800,7 +800,7 @@
    PANEL LAYOUT UTILITIES
    =========================================== */
 
-/* Scrollable panel - for pages with long content (Design System, Settings) */
+/* Scrollable panel - for pages with long content (Settings) */
 .panel-scroll {
   flex: 1;
   display: flex;

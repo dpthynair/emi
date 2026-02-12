@@ -1,19 +1,55 @@
-# React + TypeScript + Vite
+# eMi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application built with TypeScript and Vite.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS 4
+- Framer Motion
+- Radix UI
+- Recharts
+- ESLint
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
 
-## Expanding the ESLint configuration
+```bash
+npm install
+```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Development
+
+```bash
+npm run dev
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+```
+
+## Expanding the ESLint Configuration
+
+If you are developing a production application, you can update the configuration to enable type-aware lint rules:
 
 ```js
 export default defineConfig([
@@ -34,7 +70,7 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: './tsconfig.json',
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
@@ -63,7 +99,7 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: './tsconfig.json',
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
