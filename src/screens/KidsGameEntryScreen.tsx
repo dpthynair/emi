@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react"
+import { useState } from "react"
 import { Sidebar } from "@/components/Sidebar"
 import { MOCK_STUDENT_DATA, AVATAR_MAP } from "./DashboardScreen"
 import { KidCard } from "@/components/KidCard"
@@ -6,8 +6,7 @@ import { TeacherUnlockModal } from "@/components/modals/TeacherUnlockModal"
 import { KidGameScreen } from "./KidGameScreen"
 import { MascotIntroScreen } from "./MascotIntroScreen"
 
-// Note: Ensure TeacherUnlockModal import is correct relative to file structure. 
-// Previous file showed explicit usage. I will preserve usage pattern.
+
 
 export function KidsGameEntryScreen({ onExit }: { onExit?: () => void }) {
     const [isUnlockModalOpen, setIsUnlockModalOpen] = useState(false)

@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Pencil, X, ChevronDown, LogOut, BookOpen, Calculator, FlaskConical, Heart, TrendingUp, Camera, Key, Mic, Maximize2, Minimize2 } from "lucide-react"
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell, LineChart, Line, LabelList } from "recharts"
 import { ActivitiesPage } from "./ActivitiesPage"
-import { DesignSystemScreen } from "./DesignSystemScreen"
 import { GraphCard, KPICard, DataInsightCard, ChevronLabel, CustomTooltip } from "@/components/DashboardComponents"
 import { Breadcrumb } from "@/components/Breadcrumb"
 import { Header } from "@/components/Header"
@@ -14,12 +13,10 @@ import { HandOverToggle } from "@/components/HandOverToggle"
 import { PillButton } from "@/components/PillButton"
 import { MoreMenu } from "@/components/MoreMenu"
 import { KidsGameEntryScreen } from "./KidsGameEntryScreen"
-
 import { Toaster } from "@/components/ui/toaster"
 import { Sidebar } from "@/components/Sidebar"
-import { KidGridModal } from "@/components/KidGridModal"
-import { MathGateModal } from "@/components/MathGateModal"
-import { KidMode2Page } from "./KidMode2Page"
+import { KidGridModal } from "@/components/modals/KidGridModal"
+import { MathGateModal } from "@/components/modals/MathGateModal"
 import { KidMode2GamePage } from "./KidMode2GamePage"
 import { useLanguage } from "@/contexts/LanguageContext"
 
@@ -560,7 +557,7 @@ interface DashboardScreenProps {
 
 export function DashboardScreen({ onLogout }: DashboardScreenProps) {
     const { t } = useLanguage()
-    const [activeTab, setActiveTab] = useState<"main" | "kids" | "activities" | "design-system">("main")
+    const [activeTab, setActiveTab] = useState<"main" | "kids" | "activities">("main")
     const [handOverMode, setHandOverMode] = useState(false)
     const [isProfileOpen, setIsProfileOpen] = useState(false)
     const [direction, setDirection] = useState(0)
@@ -574,6 +571,8 @@ export function DashboardScreen({ onLogout }: DashboardScreenProps) {
     const [activeKidMode2View, setActiveKidMode2View] = useState<'intro' | 'gameplay'>('intro')
     const [selectedKidMode2, setSelectedKidMode2] = useState<any>(null)
     const [isMathGateModalOpen, setIsMathGateModalOpen] = useState(false)
+
+   
 
     // Helper for consistent observations
     const getStudentInsight = (student: any) => {
@@ -598,6 +597,7 @@ export function DashboardScreen({ onLogout }: DashboardScreenProps) {
                 setSelectedKidMode2(selectedStudent)
                 setActiveKidMode2(true)
                 setActiveKidMode2View('intro')
+               
             } else {
                 // Default behavior: show grid to select a kid
                 setIsKidGridModalOpen(true)
@@ -747,6 +747,9 @@ export function DashboardScreen({ onLogout }: DashboardScreenProps) {
         return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
     }, []);
 
+
+
+
     const trendData = useMemo(() => MOCK_TREND_DATA[dateFilter] || MOCK_TREND_DATA["This school year"], [dateFilter])
     const categoryData = useMemo(() => MOCK_CATEGORY_DATA[dateFilter] || MOCK_CATEGORY_DATA["This school year"], [dateFilter])
     const globalDifficultyData = useMemo(() => {
@@ -797,15 +800,20 @@ export function DashboardScreen({ onLogout }: DashboardScreenProps) {
         return MOCK_DEMOGRAPHIC_DATA[comparisonTab] || [];
     }, [comparisonTab, dateFilter, selectedCategory]);
 
+    // Helper component: navigate to an external game URL on mount
+    const NavigateToUrl: React.FC<{ url: string }> = ({ url }) => {
+        useEffect(() => {
+            if (url) window.location.assign(url);
+        }, [url]);
+        return null;
+    };
+
+
     if (activeKidMode2 && selectedKidMode2) {
         return (
             <>
                 {activeKidMode2View === 'intro' ? (
-                    <KidMode2Page
-                        kid={selectedKidMode2}
-                        onGateRequest={() => setIsMathGateModalOpen(true)}
-                        onPlay={() => setActiveKidMode2View('gameplay')}
-                    />
+                    <NavigateToUrl url="https://sunny-again-nawa.vercel.app/" />
                 ) : (
                     <KidMode2GamePage
                         kid={selectedKidMode2}
@@ -891,8 +899,6 @@ export function DashboardScreen({ onLogout }: DashboardScreenProps) {
                             }
                         }}
                     />
-                ) : activeTab === 'design-system' ? (
-                    <DesignSystemScreen />
                 ) : (
                     <>
                         <div className={`${activeTab === 'kids' && !selectedStudent ? 'panel-scroll' : 'panel-fixed'}`}>
