@@ -19,7 +19,7 @@ import { KidGridModal } from "@/components/modals/KidGridModal"
 import { MathGateModal } from "@/components/modals/MathGateModal"
 import { KidMode2GamePage } from "./KidMode2GamePage"
 import { useLanguage } from "@/contexts/LanguageContext"
-import { AVATAR_MAP, PERIOD_OPTIONS,getYAxisDomain, BRAND_YELLOW,CATEGORIES, MOCK_CATEGORY_DETAILS, MOCK_CATEGORY_DATA, MOCK_DEMOGRAPHIC_DATA, MOCK_DIFFICULTY_DATA, MOCK_KPIS, MOCK_STUDENT_DATA, MOCK_STUDENT_DETAILS, MOCK_TREND_DATA } from "@/mocks/dashboard.mock"
+import { AVATARS, AVATAR_MAP, PERIOD_OPTIONS,getYAxisDomain, BRAND_YELLOW,CATEGORIES, MOCK_CATEGORY_DETAILS, MOCK_CATEGORY_DATA, MOCK_DEMOGRAPHIC_DATA, MOCK_DIFFICULTY_DATA, MOCK_KPIS, MOCK_STUDENT_DATA, MOCK_STUDENT_DETAILS, MOCK_TREND_DATA } from "@/mocks/dashboard.mock"
 
 
 

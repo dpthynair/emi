@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Maximize2, Play } from 'lucide-react'
-import { AVATAR_MAP } from '@/screens/DashboardScreen'
+import { AVATAR_MAP } from '@/mocks/dashboard.mock'
 import { HandOverToggle } from '@/components/HandOverToggle'
 
 interface KidMode2PageProps {
