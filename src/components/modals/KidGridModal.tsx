@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
-import { MOCK_STUDENT_DATA, AVATAR_MAP } from '@/screens/DashboardScreen'
+import { MOCK_STUDENT_DATA, AVATAR_MAP } from "@/mocks/dashboard.mock"
 
 interface KidGridModalProps {
     onClose: () => void;

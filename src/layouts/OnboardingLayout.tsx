@@ -4,7 +4,7 @@ import { PillButton } from "@/components/PillButton"
 import { Maximize2, Minimize2 } from "lucide-react"
 import { LanguageSelector } from "@/components/LanguageSelector"
 import { useLanguage } from "@/contexts/LanguageContext"
-
+import { getAssetPath } from "@/lib/utils"
 interface OnboardingLayoutProps {
     children: ReactNode
     schoolName?: string
@@ -22,6 +22,10 @@ export function OnboardingLayout({
     schoolLogoUrl = "/schoollogo.png"
 }: OnboardingLayoutProps) {
     const { language, setLanguage } = useLanguage()
+
+
+    console.log(import.meta.env.VITE_BASE_PATH);
+    
 
     const t = {
         en: {
@@ -59,7 +63,7 @@ export function OnboardingLayout({
                 {/* Hero Image with Overlay */}
                 <div
                     className="absolute inset-0 bg-cover bg-center opacity-100"
-                    style={{ backgroundImage: `url(/hero.jpg)` }}
+                    style={{ backgroundImage: `url(${getAssetPath("hero.jpg")})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D1321] via-[#0D1321]/70 to-[#0D1321]/30" />
 

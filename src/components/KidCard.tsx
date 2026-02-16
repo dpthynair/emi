@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react"
-import { AVATAR_MAP } from "@/screens/DashboardScreen"
+import { AVATAR_MAP } from "@/mocks/dashboard.mock.ts"
 
 interface KidCardProps {
     kid: {

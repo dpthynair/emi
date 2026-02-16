@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Sidebar } from "@/components/Sidebar"
-import { MOCK_STUDENT_DATA, AVATAR_MAP } from "./DashboardScreen"
+import { MOCK_STUDENT_DATA, AVATAR_MAP } from "@/mocks/dashboard.mock"
 import { KidCard } from "@/components/KidCard"
 import { TeacherUnlockModal } from "@/components/modals/TeacherUnlockModal"
 import { KidGameScreen } from "./KidGameScreen"

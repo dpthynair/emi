@@ -1,5 +1,5 @@
 import { Maximize2 } from 'lucide-react'
-import { AVATAR_MAP } from '@/screens/DashboardScreen'
+import { AVATAR_MAP } from "@/mocks/dashboard.mock"
 import { HandOverToggle } from '@/components/HandOverToggle'
 
 interface KidMode2GamePageProps {
